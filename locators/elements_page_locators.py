@@ -15,9 +15,8 @@ class TexBoxPageLocators:
 
 
 class CheckBoxPageLocators:
-    EXPAND_ALL_BUTTON = (By.XPATH, '//button[@title="Expand all"]')
-    TITLE_LIST = (By.XPATH, '//span[@class="rct-title"]')
-    CHECK_BOX_LIST = (By.XPATH, '//span[@class="rct-checkbox"]')
-    CHECKED_ITEMS = (By.CSS_SELECTOR, 'svg[class="rct-icon rct-icon-check"]')
-    OUTPUT_RESULT = (By.XPATH, '//span[@class="text-success"]')
+    EXPAND_ALL_BUTTON = (By.CSS_SELECTOR, "button[title='Expand all']")
+    ITEM_LIST = (By.CSS_SELECTOR, "span[class='rct-title']")
+    CHECKED_ITEMS = (By.CSS_SELECTOR, "svg[class='rct-icon rct-icon-check']")
     TITLE_LIST_TEXT = './/ancestor::span[@class="rct-text"]'
+    OUTPUT_RESULT = (By.CSS_SELECTOR, "span[class='text-success']")

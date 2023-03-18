@@ -37,7 +37,7 @@ class CheckBoxPage(BasePage):
         self.element_is_visible(self.locators.EXPAND_ALL_BUTTON).click()
 
     def click_random_checkbox(self):
-        item_list = self.elements_are_visible(self.locators.TITLE_LIST)
+        item_list = self.elements_are_visible(self.locators.ITEM_LIST)
         count = 21
         while count != 0:
             item = item_list[random.randint(1, 15)]
@@ -48,13 +48,18 @@ class CheckBoxPage(BasePage):
             else:
                 break
 
-    def get_checked_check_boxes(self):
+    def get_checked_checkboxes(self):
         checked_list = self.elements_are_present(self.locators.CHECKED_ITEMS)
         data = []
         for box in checked_list:
             title_item = box.find_element(By.XPATH, self.locators.TITLE_LIST_TEXT)
+            print(title_item.text)
             data.append(title_item.text)
-        data = str(data).replace(' ', '').replace('doc', '').replace('.', '').lower()
-        print('Formatting data for the titles of selected checkboxes')
-        print(f'List of selected checkboxes: {data}')
-        return data
+        return str(data).replace(' ', '').replace('doc', '').replace('.', '').lower()
+
+    def get_output_result(self):
+        result_list = self.elements_are_present(self.locators.OUTPUT_RESULT)
+        data = []
+        for item in result_list:
+            data.append(item.text)
+        return str(data).replace(' ', '').lower()
